@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import { BudgetTool } from "./BudgetTool";
+import {Printer} from "./Printer";
+
 
 function App() {
   const [total, setTotal] = useState(1500);
@@ -17,10 +19,10 @@ function App() {
 
     setTotal((prevTotal) => prevTotal - cost); //subtract new cost out of budget; wayback needed
 
-    setAllExpenses((prevAllExpenses) => ([
-      expense,
-      ...prevAllExpenses
-    ]));
+    // setAllExpenses((prevAllExpenses) => ([  something wrong with updating this state 
+    //   expense,
+    //   ...prevAllExpenses
+    // ]));
   }
 
   const handleChange = event =>{
@@ -30,7 +32,7 @@ function App() {
       }))
     }
 
-  return (
+  return (  //WIP: transfer the form in ExpenseForm.js without issues
     <div>
       <h1>React Budgeting Tool</h1>
       <BudgetTool value = {total} />
@@ -47,7 +49,8 @@ function App() {
         onChange = {handleChange}/>&nbsp;&nbsp;&nbsp;
         <button>Add new expense</button>
       </form>
-      {allExpenses.map(({item, cost}) => {return <h1>{item} costs {cost}$</h1>} )}
+      {/* {allExpenses.map(({item, cost}) => {return <h1>{item} costs {cost}$</h1>} )} */}
+      <Printer name = {expense.name} cost = {expense.cost}/>
     </div>
   )
 }
