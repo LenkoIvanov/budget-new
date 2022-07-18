@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import { BudgetTool } from "./BudgetTool";
 import { ListCreator } from "./ListCreator";
+import { ExpenseForm } from "./ExpenseForm";
 
 function App() {
+  //Here are all states and their setters.
   const [total, setTotal] = useState(1500);
   const [expense, setExpense] = useState({
      name: "Expense",
@@ -10,6 +12,7 @@ function App() {
    });
   const [allExpenses, setAllExpenses] = useState([]);
 
+  //Event handlers go here
   const handleSubmit = event =>{
     event.preventDefault();
     let exp = expense.name;
@@ -28,11 +31,14 @@ function App() {
       }))
     }
 
+
+  //return method
   return (  //WIP: transfer the form in ExpenseForm.js without issues
     <div>
       <h1>React Budgeting Tool</h1>
       <BudgetTool value = {total} />
-      <form onSubmit = {handleSubmit} >
+      <ExpenseForm onChange = {handleChange} onSubmit = {handleSubmit}/>
+      {/* <form onSubmit = {handleSubmit} >
         <input 
         name = "name" 
         type = "text" 
@@ -44,7 +50,7 @@ function App() {
         placeholder = "Enter the cost..."
         onChange = {handleChange}/>&nbsp;&nbsp;&nbsp;
         <button>Add new expense</button>
-      </form>
+      </form> */}
       <ListCreator arr = {allExpenses}/>
       {/* {allExpenses.map(({name, cost}) => {return <h1>{name} costs {cost}$</h1>})} */}
     </div>
