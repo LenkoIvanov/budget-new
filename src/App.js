@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import { BudgetTool } from "./BudgetTool";
-import {Printer} from "./Printer";
 
 
 function App() {
@@ -15,16 +14,11 @@ function App() {
     event.preventDefault();
     let exp = expense.name;
     let cost = expense.cost;
-    alert( "New expense " + exp + " costs " + cost );
+    alert( "New expense " + exp + " costs " + cost ); //alert that the state has changed; to be removed later
 
     setTotal((prevTotal) => prevTotal - cost); //subtract new cost out of budget; wayback needed
 
-    // setAllExpenses((prevAllExpenses) => ([  something wrong with updating this state 
-    //   expense,
-    //   ...prevAllExpenses
-    // ]));
-
-    setAllExpenses((prevAll) => ([...prevAll, expense]));
+    setAllExpenses((prevAll) => ([...prevAll, expense])); //add them to the array of expenses
   }
 
   const handleChange = event =>{
@@ -52,7 +46,6 @@ function App() {
         <button>Add new expense</button>
       </form>
       {allExpenses.map(({name, cost}) => {return <h1>{name} costs {cost}$</h1>})}
-      {/* {<Printer name = {expense.name} cost = {expense.cost}/>} */}
     </div>
   )
 }
