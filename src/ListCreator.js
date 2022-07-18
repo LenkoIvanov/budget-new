@@ -5,9 +5,9 @@ function increment(i){
 }
 export function ListCreator (props){
     let i = 0;
-    return(
+     return(
         <ol>
-            {props.arr.map(({name, cost}) => {return <li key = {increment(i)}>{name} costs {cost}$ </li>})}
+            {props.arr.map(({name, cost}) => {return <li key = {increment(i)}>{name} costs {cost}$  <button>X</button></li>})}
         </ol>
     );
 }
