@@ -23,6 +23,8 @@ function App() {
     //   expense,
     //   ...prevAllExpenses
     // ]));
+
+    setAllExpenses((prevAll) => ([...prevAll, expense]));
   }
 
   const handleChange = event =>{
@@ -49,8 +51,8 @@ function App() {
         onChange = {handleChange}/>&nbsp;&nbsp;&nbsp;
         <button>Add new expense</button>
       </form>
-      {/* {allExpenses.map(({item, cost}) => {return <h1>{item} costs {cost}$</h1>} )} */}
-      <Printer name = {expense.name} cost = {expense.cost}/>
+      {allExpenses.map(({name, cost}) => {return <h1>{name} costs {cost}$</h1>})}
+      {/* {<Printer name = {expense.name} cost = {expense.cost}/>} */}
     </div>
   )
 }
