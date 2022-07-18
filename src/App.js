@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { BudgetTool } from "./BudgetTool";
-
+import { ListCreator } from "./ListCreator";
 
 function App() {
   const [total, setTotal] = useState(1500);
@@ -45,7 +45,8 @@ function App() {
         onChange = {handleChange}/>&nbsp;&nbsp;&nbsp;
         <button>Add new expense</button>
       </form>
-      {allExpenses.map(({name, cost}) => {return <h1>{name} costs {cost}$</h1>})}
+      <ListCreator arr = {allExpenses}/>
+      {/* {allExpenses.map(({name, cost}) => {return <h1>{name} costs {cost}$</h1>})} */}
     </div>
   )
 }
